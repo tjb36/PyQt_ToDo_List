@@ -14,7 +14,6 @@ from PyQt5.QtWidgets import (
     QListView
 )
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -55,6 +54,11 @@ class MainWindow(QMainWindow):
         widget_main.setLayout(layout_main)
         self.setCentralWidget(widget_main)
 
+        # Connect model and view
+        initial_todos = [[False, "Take out trash"],[True, "Pay bills"]]
+        self.model = ToDoModel(initial_todos)
+        self.view_list_todo.setModel(self.model)
+
     def delete(self):
         print("Delete button clicked")
 
@@ -65,6 +69,25 @@ class MainWindow(QMainWindow):
         print("Add button clicked")
 
 
+class ToDoModel(QAbstractListModel):
+    def __init__(self, todos=None):
+        super().__init__()
+        self.todos = todos or []
+
+    def rowCount(self, index):
+        return len(self.todos)
+
+    def data(self, index, role):
+        if role == Qt.DisplayRole:
+            status, text = self.todos[index.row()]
+            return text
+
+        if role == Qt.DecorationRole:
+            status, _ = self.todos[index.row()]
+            if status:
+                return QColor("green")
+            else:
+                return QColor("red")
 
 
 # Main application loop
