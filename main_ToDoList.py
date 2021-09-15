@@ -45,10 +45,25 @@ class MainWindow(QMainWindow):
         layout_main.setContentsMargins(20,20,20,20)
         layout_main.setSpacing(10)
 
+        # Signals / slots
+        self.button_delete.clicked.connect(self.delete)
+        self.button_complete.clicked.connect(self.complete)
+        self.button_add.clicked.connect(self.add)
+
         # Set up main container widget
         widget_main = QWidget()
         widget_main.setLayout(layout_main)
         self.setCentralWidget(widget_main)
+
+    def delete(self):
+        print("Delete button clicked")
+
+    def complete(self):
+        print("Complete button clicked")
+
+    def add(self):
+        print("Add button clicked")
+
 
 
 
