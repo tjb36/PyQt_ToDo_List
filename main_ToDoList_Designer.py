@@ -8,6 +8,7 @@ class MainWindow(QMainWindow):
         super().__init__(*args, **kwargs)
         loadUi('uis/mainwindow.ui', self)
 
+
 # Main application loop
 if __name__ == '__main__':
     app = QApplication(sys.argv)

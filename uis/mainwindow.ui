@@ -31,37 +31,37 @@
      <number>20</number>
     </property>
     <item>
-     <widget class="QListView" name="listView"/>
+     <widget class="QListView" name="view_list_todo"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_1">
+       <widget class="QPushButton" name="button_delete">
         <property name="text">
-         <string>PushButton 1</string>
+         <string>Delete ToDo</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="button_complete">
         <property name="text">
-         <string>PushButton 2</string>
+         <string>Mark as complete</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="edit_todo">
       <property name="placeholderText">
        <string>Enter ToDo here</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="button_add">
       <property name="text">
-       <string>PushButton 3</string>
+       <string>Add ToDo</string>
       </property>
      </widget>
     </item>
