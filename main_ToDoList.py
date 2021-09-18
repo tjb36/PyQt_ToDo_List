@@ -1,5 +1,4 @@
 import sys
-import json
 
 from PyQt5.QtCore import QSize, Qt, QAbstractListModel
 from PyQt5.QtGui import QColor, QPalette
@@ -61,12 +60,31 @@ class MainWindow(QMainWindow):
 
     def delete(self):
         print("Delete button clicked")
+        indexes = self.view_list_todo.selectedIndexes()
+        if indexes:
+            index = indexes[0]
+            row = index.row()
+            del self.model.todos[row]
+            self.model.layoutChanged.emit()
+            self.view_list_todo.clearSelection()
 
     def complete(self):
-        print("Complete button clicked")
+        indexes = self.view_list_todo.selectedIndexes()
+        if indexes:
+            index = indexes[0]
+            row = index.row()
+            status,  text = self.model.todos[row]
+            self.model.todos[row] = (True, text)
+            self.model.dataChanged.emit(index, index)
+            self.view_list_todo.clearSelection()
 
     def add(self):
-        print("Add button clicked")
+        text = self.edit_todo.text()
+        text = text.strip()
+        if text:
+            self.model.todos.append( (False, text) )
+            self.model.layoutChanged.emit()
+            self.edit_todo.setText("")
 
 
 class ToDoModel(QAbstractListModel):
@@ -79,7 +97,7 @@ class ToDoModel(QAbstractListModel):
 
     def data(self, index, role):
         if role == Qt.DisplayRole:
-            status, text = self.todos[index.row()]
+            _, text = self.todos[index.row()]
             return text
 
         if role == Qt.DecorationRole:
