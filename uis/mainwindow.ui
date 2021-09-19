@@ -31,7 +31,21 @@
      <number>20</number>
     </property>
     <item>
-     <widget class="QListView" name="view_list_todo"/>
+     <widget class="QLineEdit" name="edit_todo">
+      <property name="placeholderText">
+       <string>Enter ToDo here</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="button_add">
+      <property name="text">
+       <string>Add ToDo</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListView" name="view_list_todos"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -50,20 +64,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="edit_todo">
-      <property name="placeholderText">
-       <string>Enter ToDo here</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="button_add">
-      <property name="text">
-       <string>Add ToDo</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>

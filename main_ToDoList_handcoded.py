@@ -33,12 +33,13 @@ class MainWindow(QMainWindow):
         self.button_add = QPushButton("Add ToDo")
 
         # Add widgets to layouts
+        layout_main.addWidget(self.edit_todo)
+        layout_main.addWidget(self.button_add)
         layout_main.addWidget(self.view_list_todo)
         layout_delete_complete.addWidget(self.button_delete)
         layout_delete_complete.addWidget(self.button_complete)
         layout_main.addLayout(layout_delete_complete)
-        layout_main.addWidget(self.edit_todo)
-        layout_main.addWidget(self.button_add)
+
 
         layout_main.setContentsMargins(20,20,20,20)
         layout_main.setSpacing(10)
